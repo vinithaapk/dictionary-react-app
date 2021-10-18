@@ -54,14 +54,17 @@ function App() {
     style={{ 
       height:"100vh", 
       backgroundColor:"#460367", 
-      backgroundColor: LightTheme ? "#460367" : "#282c34",
-      color: LightTheme ? "white" : "white",
+      fontWeight: 'bold',
+      //backgroundColor: LightTheme ? "#82c2be" : "#282c34",
+      //backgroundImage: "linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet)",
+      backgroundImage : LightTheme ? "url('https://images.unsplash.com/photo-1556174645-c49d9626b3bb?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8MTA5fHx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=600&q=60')" : "url('https://www.worldatlas.com/r/w1200/upload/56/c5/7c/shutterstock-520792630.jpg')",
+      color: LightTheme ? "white" : "black",
       transition: "all 0.5s linear",
       }}>
       
       <Container maxWidth="md" style={{ display:"flex", flexDirection:"column", height:'100vh', justifyContent: "space-evenly",}}>
         <div style={{position:"absolute", top:0, right: 15, paddingTop: 10}}>
-        <span>{LightTheme ? "Dark" : "Purple"} Mode</span>
+        <span>{LightTheme ? "Night" : "Day"} Mode</span>
         
         <DarkMode
             checked={LightTheme}
@@ -69,7 +72,7 @@ function App() {
           />
            
         </div>
-        <Header category = {category} setCategory={setCategory} word={word} setWord={setWord} LightMode={LightTheme} />
+        <Header category = {category} setCategory={setCategory} word={word} setWord={setWord} LightTheme={LightTheme} />
         {meanings && 
         (<Definitions word={word} meanings={meanings} category={category} />)
         }
