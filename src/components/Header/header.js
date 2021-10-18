@@ -8,9 +8,9 @@ const header = ({setCategory, category , word, setWord, LightTheme}) => {
     const darkTheme = createTheme({
         palette: {
             primary:{
-                main:LightTheme?"#fff" : '#fff'
+                main:LightTheme ? "#fff" : "#000",
             },
-          type: LightTheme?"dark":'dark',
+            type: LightTheme ? "dark": "light",
         },
       });
 
@@ -25,12 +25,14 @@ const header = ({setCategory, category , word, setWord, LightTheme}) => {
     return (
         <div className='header'>
             <span className='title'> {word ? word : "Dictionary"} </span>
-            <div className='inputs'>
+            <div className='inputs' >
                 <ThemeProvider theme={ darkTheme }>
-                    <TextField 
+                    <TextField  style={{ 
+                color: LightTheme ? "white" : "black", }}
                         className = 'search' 
                         label = "Search a word"
                         value={word} 
+                        variant="outlined"
                         onChange={(e)=>setWord(e.target.value)}> 
                     </TextField>
                     <TextField
@@ -38,6 +40,7 @@ const header = ({setCategory, category , word, setWord, LightTheme}) => {
                             select 
                             label="Language"
                             value = {category}
+                            variant="outlined"
                             onChange = {(e)=>handleChange(e.target.value)}
                             >
                                 {
