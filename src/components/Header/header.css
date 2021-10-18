@@ -1,7 +1,7 @@
 .title{
     font-size: 7vw;
     text-transform: uppercase;
-    font-family: "Montserrat", sans-serif;
+    font-family: "Josefin Sans", sans-serif;
 }
 .header
 {
@@ -11,6 +11,9 @@
     flex-direction: column;
     height: 35vh;
     width: 100%;
+    
+    
+
 }
 @media (max-width:900px)
 {
@@ -26,9 +29,10 @@
     width:100%;
     display: flex;
     justify-content: space-around;
+    font-weight: bold;
 
 }
 .search, .select{
     width:43%;
-
+    font-weight: bold;
 }
