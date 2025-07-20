@@ -1,35 +1,184 @@
-.meanings
-{
+.meanings {
     display: flex;
     flex-direction: column;
-    overflow-y: scroll;
-    scrollbar-width: thin;
-    height:55vh;
-    width: auto;
-    border: 3px solid rgb(147, 146, 148);
-    border-radius: 10px;
-    padding: 10px 20px;
-    overflow-x: hidden;
+    overflow-y: auto;
+    max-height: calc(100vh - 250px);
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border-radius: 24px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
 }
-.subTitle
-{
-    font-size: 5vw;
-    font-family: "Josefin Sans", sans-serif;
 
+.meanings::-webkit-scrollbar {
+    width: 6px;
 }
-@media (max-width:900px)
-{
-    .meanings{
-        height: 60vh;
-        overflow-x: hidden;
-        overflow-y: scroll;
+
+.meanings::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 3px;
+}
+
+.meanings::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 3px;
+}
+
+.empty-state {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 200px;
+    text-align: center;
+    gap: 1rem;
+    animation: fadeIn 0.5s ease-out;
+}
+
+.phonetics-container {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-bottom: 2rem;
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 16px;
+}
+
+.phonetic-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 20px;
+    transition: all 0.2s ease;
+}
+
+.phonetic-text {
+    font-family: 'Roboto Mono', monospace;
+    font-size: 0.9rem;
+}
+
+.audio-icon {
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.audio-icon:hover {
+    transform: scale(1.1);
+    color: #2196F3;
+}
+
+.meaning-group {
+    animation: slideUp 0.5s ease-out;
+}
+
+.part-of-speech {
+    margin-bottom: 2rem;
+}
+
+.pos-chip {
+    margin-bottom: 1rem;
+    background: rgba(33, 150, 243, 0.1);
+    border-color: rgba(33, 150, 243, 0.5);
+    font-weight: 500;
+}
+
+.single-mean {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(5px);
+    border-radius: 16px;
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+    transition: all 0.3s ease;
+}
+
+.single-mean:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+.definition {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+}
+
+.example-box {
+    margin: 1rem 0;
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.02);
+    border-left: 3px solid #2196F3;
+    border-radius: 0 8px 8px 0;
+}
+
+.example {
+    font-style: italic;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.synonyms, .antonyms {
+    margin-top: 1rem;
+}
+
+.chips-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+}
+
+.synonym-chip {
+    background: rgba(76, 175, 80, 0.1) !important;
+    border-color: rgba(76, 175, 80, 0.5) !important;
+}
+
+.antonym-chip {
+    background: rgba(244, 67, 54, 0.1) !important;
+    border-color: rgba(244, 67, 54, 0.5) !important;
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
     }
 }
-.singleMean
-{
-    display: flex;
-    flex-direction: column;
-    border-radius: 10px;
-    padding: 10px 20px;
-    margin: 10px 0;
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@media (max-width: 768px) {
+    .meanings {
+        padding: 1rem;
+        margin: 1rem;
+        max-height: calc(100vh - 200px);
+    }
+
+    .phonetics-container {
+        padding: 0.5rem;
+        margin-bottom: 1rem;
+    }
+
+    .single-mean {
+        padding: 1rem;
+    }
+
+    .definition {
+        font-size: 1rem;
+    }
 }
